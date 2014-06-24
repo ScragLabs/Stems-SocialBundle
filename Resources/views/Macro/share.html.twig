@@ -1,0 +1,44 @@
+{% spaceless %}
+	{% macro shareTwitter(sharer) %}
+		<a href="http://twitter.com/intent/tweet?
+			{# url params #}
+				url={{ sharer.url|url_encode(false) }}
+			{# end params #}
+		" rel="nofollow" target="_blank" ><i class="fa fa-twitter"></i></a>
+	{% endmacro %}
+	{% macro shareFacebook(sharer) %}
+		<a href="http://www.facebook.com/sharer.php?
+			{# url params #}
+				s=100&
+				p[url]={{ sharer.url|url_encode(false) }}&
+				p[images][0]={{ sharer.image|url_encode(false) }}&
+				p[title]={{ sharer.title|url_encode(false) }}&
+				p[summary]={{ sharer.text|url_encode(false) }}
+			{# end params #}
+		" rel="nofollow" target="_blank" ><i class="fa fa-facebook"></i></a>
+	{% endmacro %}
+	{% macro shareGooglePlus(sharer) %}
+		<a href="https://plus.google.com/share?
+			{# url params #}
+				url={{ sharer.url|url_encode(false) }}
+			{# end params #}
+		" rel="nofollow" target="_blank" ><i class="fa fa-google-plus"></i></a>
+	{% endmacro %}
+	{% macro sharePinterest(sharer) %}
+		<a href="http://pinterest.com/pin/create/link/?
+			{# url params #}
+				url={{ sharer.url|url_encode(false) }}&
+				media={{ sharer.image|url_encode(false) }}&
+				description={{ sharer.title|url_encode(false) }}
+			{# end params #}
+		" rel="nofollow" target="_blank" ><i class="fa fa-pinterest"></i></a>
+	{% endmacro %}
+	{% macro shareEmail(sharer) %}
+		<a href="mailto:your.friend@mail.com?
+			{# url params #}
+				subject={{ sharer.title }}&
+				body={{ sharer.text }}
+			{# end params #}
+		" rel="nofollow" target="_blank" ><i class="fa fa-envelope-o"></i></a>
+	{% endmacro %}
+{% endspaceless %}

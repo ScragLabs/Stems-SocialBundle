@@ -1,0 +1,11 @@
+stems_admin_social_dashboard:
+    pattern:  /admin/social
+    defaults: { _controller: StemsSocialBundle:Admin:index }
+
+stems_admin_social_instagram_overview:
+    pattern:  /admin/social/instagram
+    defaults: { _controller: StemsSocialBundle:Admin:indexInstagram }
+
+stems_admin_social_instagram_update_feed:
+    pattern:  /admin/social/instagram/feed/{id}/update
+    defaults: { _controller: StemsSocialBundle:Admin:updateInstagramFeed }

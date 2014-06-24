@@ -1,0 +1,10 @@
+<div id="instagram-slider" class="widget widget-instagram-slider">
+	<h5><span>Instagram</span></h5>
+	<div class="slides">
+		{% for image in feed.images|slice(0, 4) %}
+			<a class="slide" href="{{ image.url }}" rel="nofollow" style="background: url('{{ image.image }}') center center; background-size:cover;{% if loop.index > 1 %}display:none{% endif %}">
+			{# <h2>{{ pick.name }}<span>{{ pick.designer }}</span></h2> #}
+			</a>
+		{% endfor %}
+	</div>
+</div>

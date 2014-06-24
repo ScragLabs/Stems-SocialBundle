@@ -1,0 +1,14 @@
+<div id="instagram-grid">
+	<div class="slides">
+		{% for image in feed.images|slice(0, 15) %}
+			<div class="slide">
+				<a href="{{ image.url }}" rel="nofollow" ><img src="{{ image.thumbnail }}" width="79" height="79" alt="{{ image.caption }}" title="{{ image.caption }}"/></a>
+			</div>
+			{% if loop.index == 5 %}
+				<div class="slide">
+					<a class="follow" href="http://instagram.com/ThreadAndMirror" title="Follow us on Instagram" rel="nofollow" ><span><i class="fa fa-instagram"></i></span></a>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</div>

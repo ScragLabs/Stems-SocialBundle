@@ -1,0 +1,7 @@
+parameters:
+#    stems_social.example.class: Stems\SocialBundle\Example
+
+services:
+#    stems_social.example:
+#        class: %stems_social.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
