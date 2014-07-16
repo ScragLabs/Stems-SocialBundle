@@ -1,6 +1,6 @@
 <?php
 
-namespace ThreadAndMirror\SocialBundle\Controller;
+namespace Stems\SocialBundle\Controller;
 
 // Dependencies
 use Stems\CoreBundle\Controller\BaseAdminController,
@@ -10,11 +10,11 @@ use Stems\CoreBundle\Controller\BaseAdminController,
 	Symfony\Component\HttpFoundation\Request;
 
 // Entities
-use ThreadAndMirror\SocialBundle\Entity\FeedOwner;
+use Stems\SocialBundle\Entity\FeedOwner;
 
 class AdminController extends BaseAdminController
 {
-	protected $home = 'thread_admin_social_overview';
+	protected $home = 'stems_admin_social_overview';
 
 	/**
 	 * Render the dialogue for the module's dashboard entry in the admin panel
