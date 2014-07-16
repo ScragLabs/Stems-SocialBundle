@@ -1,6 +1,6 @@
 <?php
 
-namespace Stems\SocialBundle\Controller;
+namespace ThreadAndMirror\SocialBundle\Controller;
 
 // Symfony Components
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
