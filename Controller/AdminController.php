@@ -10,7 +10,7 @@ use Stems\CoreBundle\Controller\BaseAdminController,
 	Symfony\Component\HttpFoundation\Request;
 
 // Entities
-use Stems\SocialBundle\Entity\FeedOwner;
+use Stems\SocialBundle\Entity\InstagramImage;
 
 class AdminController extends BaseAdminController
 {
