@@ -1,0 +1,9 @@
+parameters:
+
+    # Admin menu items
+    stems.admin.menu_core_stemssocialbundle:
+        stems_social:
+            title: 'Social'
+            route: 'stems_admin_social_overview'
+            icon: 'fa fa-share-alt'
+            children: []
