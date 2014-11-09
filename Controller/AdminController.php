@@ -2,22 +2,27 @@
 
 namespace Stems\SocialBundle\Controller;
 
-// Dependencies
-use Stems\CoreBundle\Controller\BaseAdminController,
-	Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter,
-	Symfony\Component\HttpFoundation\RedirectResponse,
-	Symfony\Component\HttpFoundation\Response,
-	Symfony\Component\HttpFoundation\Request;
-
-// Entities
+use Stems\CoreBundle\Controller\BaseAdminController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Stems\SocialBundle\Entity\InstagramImage;
 
+/**
+ * @Route("/admin/social")
+ */
 class AdminController extends BaseAdminController
 {
 	protected $home = 'stems_admin_social_overview';
 
 	/**
 	 * Render the dialogue for the module's dashboard entry in the admin panel
+	 *
+ 	 * @Template()
 	 */
 	public function dashboardAction()
 	{
@@ -26,6 +31,9 @@ class AdminController extends BaseAdminController
 
 	/**
 	 * Social media overview
+	 *
+	 * @Route("/")
+	 * @Template()
 	 */
 	public function indexAction()
 	{		
@@ -34,8 +42,11 @@ class AdminController extends BaseAdminController
 
 	/**
 	 * Instagram feeds overview
+	 * 
+	 * @Route("/instagram")
+	 * @Template()
 	 */
-	public function indexInstagramAction()
+	public function instagramIndexAction()
 	{		
 		// get all available feeds 
 		$em = $this->getDoctrine()->getEntityManager();
@@ -48,21 +59,23 @@ class AdminController extends BaseAdminController
 
 	/**
 	 * Update the selected feed
+	 *
+	 * @Route("/instagram/feed/{id}/update")
 	 */
 	public function updateInstagramFeedAction($id, Request $request)
 	{
-		// get the specified feed
+		// Get the specified feed
 		$em = $this->getDoctrine()->getEntityManager();
 		$feed = $em->getRepository('StemsSocialBundle:InstagramFeed')->find($id);
 
-		// get the images we've already downloaded
+		// Get the images we've already downloaded
 		$existing = array();
 		foreach ($feed->getImages() as $image) {
 			$existing[] = $image->getUrl();
 		}
 
 		// API variables
-		$client = '1083901020';
+		$client = '1525057261';
 		$token = '1083901020.9cbc254.e7ee623c03a84528821c521ea0b008b8';
 		$count = 64;
 		$url = 'https://api.instagram.com/v1/users/'.$client.'/media/recent/?access_token='.$token.'&count='.$count;

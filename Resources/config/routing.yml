@@ -4,7 +4,7 @@ stems_admin_social_overview:
 
 stems_admin_social_instagram_overview:
     pattern:  /admin/social/instagram
-    defaults: { _controller: StemsSocialBundle:Admin:indexInstagram }
+    defaults: { _controller: StemsSocialBundle:Admin:instagramIndex }
 
 stems_admin_social_instagram_update_feed:
     pattern:  /admin/social/instagram/feed/{id}/update

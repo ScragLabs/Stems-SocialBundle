@@ -14,7 +14,7 @@ class WidgetController extends Controller
 	/**
 	 * Renders the latest instagrams in a grid box, defaulting to the first feed
 	 */
-	public function instagramGridAction($id=1)
+	public function instagramGridAction($id)
 	{
 		// get the specified feed
 		$em = $this->getDoctrine()->getEntityManager();
@@ -28,7 +28,7 @@ class WidgetController extends Controller
 	/**
 	 * Renders the latest instagrams in a slider, defaulting to the first feed
 	 */
-	public function instagramSliderAction($id=1)
+	public function instagramSliderAction($id)
 	{
 		// get the specified feed
 		$em = $this->getDoctrine()->getEntityManager();
