@@ -110,12 +110,12 @@ class AdminController extends BaseAdminController
 			$em->persist($feed);
 			$em->flush();
 
-			$request->getSession()->setFlash('success', 'The feed "'.$feed->getName().'" has been updated.');
+			$request->getSession()->getFlashBag()->set('success', 'The feed "'.$feed->getName().'" has been updated.');
 			return $this->redirect($this->generateUrl('stems_admin_social_instagram_overview'));
 		}
 		catch (\Exception $e) 
 		{
-			$request->getSession()->setFlash('error', 'The feed "'.$feed->getName().'" wasn\'t updated as Instagram didn\'t respond. Please try again.');
+			$request->getSession()->getFlashBag()->set('error', 'The feed "'.$feed->getName().'" wasn\'t updated as Instagram didn\'t respond. Please try again.');
 			return $this->redirect($this->generateUrl('stems_admin_social_instagram_overview'));
 		}
 	}
