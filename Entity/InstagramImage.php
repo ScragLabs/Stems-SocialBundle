@@ -51,7 +51,7 @@ class InstagramImage
     protected $tags = array();
 
     /** 
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $profile;
 

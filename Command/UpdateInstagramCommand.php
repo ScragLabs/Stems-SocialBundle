@@ -20,20 +20,6 @@ class UpdateInstagramCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        // load the necessary services
-        $em = $this->getContainer()->get('doctrine.orm.entity_manager');
 
-        // get the products that have been out of stock for over a month and are not marked as expired
-        $expiring = $em->getRepository('ThreadAndMirrorProductsBundle:Product')->getExpiringProducts();
-
-        // mark as expired
-        foreach ($expiring as $product) {
-            $product->setExpired(new \DateTime());
-            $em->persist($product);
-        }
-
-        // flush any remaining updated products and notify complete
-        $em->flush();
-        $output->writeln(count($expiring).' products marked as expired.');
     }
 }
