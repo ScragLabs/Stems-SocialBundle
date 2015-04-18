@@ -79,7 +79,10 @@ class InstagramImage
             $this->url = $post->link;
             $this->image = $post->images->standard_resolution->url;
             $this->thumbnail = $post->images->thumbnail->url;
-            $this->caption = $post->caption->text;
+
+	        // Remove emojis from captions
+            $this->caption =  preg_replace('/[\x{10000}-\x{10FFFF}]/u', '', $post->caption->text);
+
             $this->tags = $post->tags;
         }
 
