@@ -1,0 +1,12 @@
+<div class="widget widget-instagram">
+    <h4>From our Instagram...</h4>
+    <br>
+    <div class="images">
+        {% for image in images %}
+            <figure class="instagram" style="background:url('{{ image.image }}') center center;background-size: cover">
+                <a href="{{ image.url }}" rel="nofollow" target="_blank"></a>
+            </figure>
+        {% endfor %}
+        <br class="clear">
+	</div>
+</div>

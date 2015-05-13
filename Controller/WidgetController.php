@@ -2,12 +2,12 @@
 
 namespace Stems\SocialBundle\Controller;
 
-// Symfony Components
-use Symfony\Bundle\FrameworkBundle\Controller\Controller,
-	Symfony\Component\Security\Core\SecurityContext,
-	Symfony\Component\HttpFoundation\RedirectResponse,
-	Symfony\Component\HttpFoundation\Response,
-	Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use	Symfony\Component\Security\Core\SecurityContext;
+use	Symfony\Component\HttpFoundation\RedirectResponse;
+use	Symfony\Component\HttpFoundation\Response;
+use	Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class WidgetController extends Controller
 {
@@ -37,5 +37,23 @@ class WidgetController extends Controller
 	    return $this->render('StemsSocialBundle:Widget:instagramSlider.html.twig', array(
 			'feed'			=> $feed,
 		));
+	}
+
+	/**
+	 * Holding page
+	 *
+	 * @Template()
+	 */
+	public function homepageFeatureAction()
+	{
+		$em   = $this->getDoctrine()->getManager();
+		$feed = $em->getRepository('StemsSocialBundle:InstagramFeed')->find(1);
+
+		$images = $feed->getImages()->toArray();
+		$images = array_splice($images, 0, 12);
+
+		return array(
+			'images' => $images
+		);
 	}
 }
