@@ -171,10 +171,10 @@ class InstagramImage
     /**
      * Set profile
      *
-     * @param \profile $profile
+     * @param integer $profile
      * @return InstagramImage
      */
-    public function setProfile(\profile $profile)
+    public function setProfile(integer $profile)
     {
         $this->profile = $profile;
     
@@ -184,7 +184,7 @@ class InstagramImage
     /**
      * Get profile
      *
-     * @return \profile 
+     * @return integer
      */
     public function getProfile()
     {
