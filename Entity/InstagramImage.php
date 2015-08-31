@@ -174,7 +174,7 @@ class InstagramImage
      * @param integer $profile
      * @return InstagramImage
      */
-    public function setProfile(integer $profile)
+    public function setProfile($profile)
     {
         $this->profile = $profile;
     
