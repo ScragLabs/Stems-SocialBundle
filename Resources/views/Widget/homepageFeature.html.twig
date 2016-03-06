@@ -1,10 +1,10 @@
-<div class="widget widget-instagram">
-    <h4>From our Instagram...</h4>
+<div class="our-instagram-widget">
+    <h4 class="our-instagram-widget__title">From our Instagram...</h4>
     <br>
-    <div class="images">
+    <div class="our-instagram-widget__items">
         {% for image in images %}
-            <figure class="instagram" style="background:url('{{ image.image }}') center center;background-size: cover">
-                <a href="{{ image.url }}" rel="nofollow" target="_blank"></a>
+            <figure class="our-instagram-widget__item" style="background:url('{{ image.image }}') center center;background-size: cover">
+                <a class="our-instagram-widget__item-link" href="{{ image.url }}" rel="nofollow" target="_blank"></a>
             </figure>
         {% endfor %}
         <br class="clear">
