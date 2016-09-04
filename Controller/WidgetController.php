@@ -50,7 +50,7 @@ class WidgetController extends Controller
 		$feed = $em->getRepository('StemsSocialBundle:InstagramFeed')->find(1);
 
 		$images = $feed->getImages()->toArray();
-		$images = array_splice($images, 0, 16);
+		$images = array_splice($images, 0, 20);
 
 		return array(
 			'images' => $images
